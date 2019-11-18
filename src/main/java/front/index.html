@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>SHOU二手书市场</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+<!--    <script src="libs/jquery-3.4.1.min.js"></script>-->
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">管理平台</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="javascript:;">客户服务</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">帮助中心</a> </dd>
+                    <dd><a href="">售后服务</a> </dd>
+                    <dd><a href="">在线客服</a> </dd>
+                    <dd><a href="">意见中心</a> </dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">常用网址</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">我的消息</a></dd>
+                    <dd><a href="">我要登录</a></dd>
+                    <dd><a href="">我要注册</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="./layui/images/IMG_0870.JPG" class="layui-nav-img">
+                    国服第一锤石
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退了</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black ">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item ">
+                    <a class="" href="javascript:;">用户权限管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">用户信息</a></dd>
+                        <dd><a href="javascript:;">收货地址</a></dd>
+                        <dd><a href="javascript:;">购物车</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">商品管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">商品列表</a></dd>
+                        <dd><a href="javascript:;">发布商品</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascrpit:;">交易管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">查看账单</a> </dd>
+                        <dd><a href="javascript:;">我的红包</a> </dd>
+                        <dd><a href="javascript:;">我的快递</a> </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">内容主体区域</div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+<script src="./layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+</body>
+</html>
