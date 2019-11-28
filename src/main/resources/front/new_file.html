@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>商品管理</title>
-    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
     <style>
         body{margin: 10px;}
         /*.demo-carousel{height: 200px; line-height: 200px; text-align: center;}*/
@@ -24,7 +24,7 @@
 <blockquote class="layui-elem-quote layui-quote-nm layui-hide" id="footer">layui {{ layui.v }} 提供强力驱动</blockquote>
 
 
-<script src="./layui/layui.all.js"></script>
+<script src="layui/layui.all.js"></script>
 <script>
     layui.config({
         version: '1573457678857' //为了更新 js 缓存，可忽略
@@ -52,9 +52,9 @@
                 ,{field: 'number', title: '库存', width: 80, sort: true, totalRow: true}
                 ,{field: 'sold', title: '销量', width:100, sort:true}
                 ,{field: 'seller', title: '卖家', width: 200}
-                ,{field: 'classify', title: '职业', width: 100}
-                ,{field: 'wealth', title: '财富', width: 135, sort: true, totalRow: true}
-                ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
+                // ,{field: 'classify', title: '职业', width: 100}
+                // ,{field: 'wealth', title: '财富', width: 135, sort: true, totalRow: true}
+                 ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
             ]]
         });
 

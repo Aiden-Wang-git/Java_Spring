@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    prefix: classpath:/front/
+    suffix: .html
+#    mode: HTML
+#    cache: false
+  jpa:
+    show-sql: true
+    hibernate:
+#      ddl-auto: update
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/exchange_used?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456
+    username: root
+    platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+0800
+  resources:
+    static-locations: classpath:/
+
+
+
+
+#  mvc:
+#    favicon:
+#      enabled: false
+#    view:
+#      prefix: classpath:/templates/
+#      suffix: .html
