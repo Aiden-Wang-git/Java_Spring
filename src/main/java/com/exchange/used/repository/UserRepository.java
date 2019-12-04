@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserRepository extends JpaRepository<User, String> {
-public User getByUsernameAndPassword(String username,String password);
-
+ User getByUsernameAndPassword(String username,String password);
+ User getByUsername(String usernme);
 
 
 

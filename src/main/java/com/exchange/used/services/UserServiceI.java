@@ -1,7 +1,10 @@
 package com.exchange.used.services;
 
 import com.exchange.used.configure.LayuiResult;
+import com.exchange.used.entity.User;
 
 public interface UserServiceI {
-    public LayuiResult login(String username,String password);
+    LayuiResult login(String username,String password);
+    boolean namever(String username);
+    boolean add(User user);
 }

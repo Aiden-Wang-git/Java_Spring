@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-    <script src="./libs/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="./layui/css/layui.css">
-    <link rel="stylesheet" href="./adminLogin.css">
+    <script src="/front/libs/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/front/layui/css/layui.css">
+    <link rel="stylesheet" href="/front/adminLogin.css">
 </head>
 <body>
 <div class="wrap">
-    <img src="./picture/background.jpg" class="imgStyle">
+    <img src="/front/picture/background.jpg" class="imgStyle">
     <div class="loginForm">
         <form>
 
@@ -53,24 +53,19 @@
 
             <div class="usernameWrapDiv">
                 <div class="submitLabel">
-                    <label>没有账号？<a href="./register.html" id="loginRegister">点击注册</a></label>
+                    <label>没有账号？<a href="/front/register.html" id="loginRegister">点击注册</a></label>
                 </div>
                 <div class="submitDiv">
-                    <a href="index.html">
                         <input id="loginBtn" type="button" class="submit layui-btn layui-btn-primary"
                                value="登录"></input>
-                    </a>
                 </div>
             </div>
 
         </form>
     </div>
 </div>
-<script src="./layui/layui.js" type="text/javascript"></script>
+<script src="/front/layui/layui.js" type="text/javascript"></script>
 <script>
-    layui.use(['layer'], function () {
-        var layer = layui.layer;
-    })
     $(function () {
         // 页面初始化生成验证码
         window.onload = createCode('#loginCode');
@@ -109,11 +104,11 @@
         var cardCode = $(codeID).val();
         var loginUsername = $('#loginUsername').val();
         var loginPassword = $('#loginPassword').val();
-        if ($.trim(loginUsername) == '' || $.trim(loginUsername).length <= 0) {
+        if ($.trim(loginUsername) === '' || $.trim(loginUsername).length <= 0) {
             layer.alert("用户名不能为空");
             return false;
         }
-        if ($.trim(loginPassword) == '' || $.trim(loginPassword).length <= 0) {
+        if ($.trim(loginPassword) === '' || $.trim(loginPassword).length <= 0) {
             layer.alert("密码不能为空");
             return false;
         }
@@ -121,7 +116,7 @@
             layer.alert("验证码不能为空");
             return false;
         }
-        if (inputCode != cardCode) {
+        if (inputCode !== cardCode) {
             layer.alert("请输入正确验证码");
             return false;
         }
@@ -135,31 +130,25 @@
         } else {
             var loginUsername = $('#loginUsername').val();
             var loginPassword = $('#loginPassword').val();
-            var params = {};
-            params.loginUsername = loginUsername;
-            params.loginPassword = loginPassword;
-            var loginLoadIndex = layer.load(2);
             $('#loginBtn').val("正在登录...");
             $.ajax({
-                type: 'post',
-                url: window.location.protocol + '//' + window.location.host + '/Java_Spring/front/index.html',
-                dataType: 'html',
-                data: JSON.stringify(params),
-                contentType: 'application/json',
+                type: 'get',
+                url: '/login/'+loginUsername +'/'+loginPassword,
+                dataType: 'json',
                 success: function (data) {
-                    layer.close(loginLoadIndex);
-                    var jsonData = JSON.parse(data);
-                    if (jsonData.code == '999') {
-                        window.location.href = './static/templates/main.html';
-                    }
+                    // layer.close(loginLoadIndex);
+                    if (data.msg === '管理员')
+                        window.location.href = '/manage';
+                    else if (data.msg==='用户')
+                        window.location.href = '/goods';
+                    else layer.alert('用户名或者密码错误！');
                 },
                 error: function () {
-                    layer.close(loginLoadIndex);
-                    $('#loginBtn').val("登录");
+                    // layer.close(loginLoadIndex);
+                    // $('#loginBtn').val("登录");
                 }
             });
         }
-
     }
 </script>
 </body>

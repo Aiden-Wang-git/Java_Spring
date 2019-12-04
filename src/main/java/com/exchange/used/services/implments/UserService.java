@@ -27,6 +27,9 @@ public class UserService implements UserServiceI {
                 return layuiResult;
             }
             layuiResult.setCode(0);
+            if (user.getFkroleid().equals("1"))
+                layuiResult.setMsg("管理员");
+            else layuiResult.setMsg("用户");
             layuiResult.getData().put("user", user);
         }catch (Exception e){
             e.printStackTrace();
@@ -34,5 +37,29 @@ public class UserService implements UserServiceI {
             layuiResult.setMsg(e.getMessage());
         }
         return layuiResult;
+    }
+
+    @Override
+    public boolean namever(String username) {
+        try {
+            User user =repository.getByUsername(username);
+            if (user == null)
+                return true;
+            else return false;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean add(User user) {
+        try {
+            repository.save(user);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }
