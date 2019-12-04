@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00d6a258-c6bc-4f52-b638-69ed13c73f35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/front/adminLogin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/front/picture/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/front/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/front/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/adminLogin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/adminLogin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +23,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -41,6 +42,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -48,6 +50,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last.edited.regexp" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/front/picture" />
   </component>
   <component name="RecentsManager">
@@ -132,7 +135,10 @@
       <workItem from="1574332390711" duration="294000" />
       <workItem from="1574937305048" duration="7979000" />
       <workItem from="1574951892245" duration="584000" />
-      <workItem from="1575193313078" duration="4036000" />
+      <workItem from="1575193313078" duration="4112000" />
+      <workItem from="1575265640123" duration="8116000" />
+      <workItem from="1575369415306" duration="10037000" />
+      <workItem from="1575419727914" duration="5591000" />
     </task>
     <task id="LOCAL-00001" summary="2019.11.18">
       <created>1574053701215</created>
@@ -148,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574054413857</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2019.12.1前端">
+      <created>1575197508688</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575197508688</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +197,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2019.11.18" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ConstantineWang/Java_Spring&#10;&#10;# Conflicts:&#10;#&#9;.gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ConstantineWang/Java_Spring&#10;&#10;# Conflicts:&#10;#&#9;.gitignore" />
+    <MESSAGE value="2019.12.1前端" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019.12.1前端" />
   </component>
 </project>
