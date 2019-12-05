@@ -38,8 +38,8 @@ public class SystemController {
         return layuiResult;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public LayuiResult add(@RequestBody User user) {
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public LayuiResult register(@RequestBody User user) {
         LayuiResult layuiResult = new LayuiResult();
         user.setFkroleid("2");
         if (userServiceI.add(user)) {

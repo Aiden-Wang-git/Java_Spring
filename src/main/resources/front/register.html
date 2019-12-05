@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="./libs/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="./adminLogin.css">
-    <script src="libs/jquery-3.4.1.min.js"></script>
-    <script src="layui/register.js"></script>
+    <script src="/front/libs/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/front/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/front/adminLogin.css">
+    <script src="/front/libs/jquery-3.4.1.min.js"></script>
     <title>注册</title>
 </head>
 <body>
 <div class="registerPage">
-        <img src="./picture/background.jpg" class="imgStyle">
+    <img src="/front/picture/background.jpg" class="imgStyle">
     <div class="loginForm" style="height: 300px">
         <form>
 
@@ -21,7 +20,8 @@
                 </div>
                 <div class="usernameDiv">
                     <i class="layui-icon layui-icon-username adminIcon"></i>
-                    <input id="registerUsername" class="layui-input adminInput" type="text" name="username" onblur="usernamever()"
+                    <input id="registerUsername" class="layui-input adminInput" type="text" name="username"
+                           onblur="usernamever()"
                            placeholder="输入用户名">
                     <span id="tishi1"></span>
                 </div>
@@ -44,7 +44,8 @@
                 </div>
                 <div class="passwordDiv">
                     <i class="layui-icon layui-icon-password adminIcon"></i>
-                    <input id="registerWellPassword" class="layui-input adminInput" type="password" name="password" onkeyup="passwordver()"
+                    <input id="registerWellPassword" class="layui-input adminInput" type="password" name="password"
+                           onkeyup="passwordver()"
                            placeholder="输入密码">
                     <span id="tishi2"></span>
                 </div>
@@ -59,29 +60,28 @@
                         <option value="0">普通用户</option>
                         <option value="1">管理员</option>
                     </select>
-                    <input id="loginBtn" type="button" class="submit layui-btn layui-btn-primary" value="注册"></input>
+                    <input id="register" type="button" class="submit layui-btn layui-btn-primary" value="注册"></input>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<script src="./layui/layui.js" type="text/javascript"></script>
+<script src="/front/layui/layui.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-    function usernamever(){
+    function usernamever() {
         var username = document.getElementById("registerUsername").value;
-        if(username.length < 3||username.length>20){
-            document.getElementById("tishi1").innerHTML="<font color='red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长度违规</font>";
-            document.getElementById("loginBtn").disabled = true;
+        if (username.length < 3 || username.length > 20) {
+            document.getElementById("tishi1").innerHTML = "<font color='red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长度违规</font>";
             return false;
         }
         //非法字符限制
-        reg=/^([a-zA-Z0-9])+$/ ;
-        if (!reg.test(username)){
-            document.getElementById("tishi1").innerHTML="<font color='red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;违规昵称</font>";
-            document.getElementById("loginBtn").disabled = true;
+        reg = /^([a-zA-Z0-9])+$/;
+        if (!reg.test(username)) {
+            document.getElementById("tishi1").innerHTML = "<font color='red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;违规昵称</font>";
             return false;
         }
+        document.getElementById("tishi1").innerHTML = "<font color='red'></font>";
         return true;
     }
 
@@ -89,40 +89,58 @@
         var pwd1 = document.getElementById("registerWellPassword").value;
         var pwd2 = document.getElementById("registerPassword").value;
         <!-- 对比两次输入的密码 -->
-        if(pwd1 == pwd2)
-        {
-            document.getElementById("tishi2").innerHTML="<font color='green'>两次密码相同</font>";
-            document.getElementById("loginBtn").disabled = false;
-        }
-        else {
-            document.getElementById("tishi2").innerHTML="<font color='red'>两次密码不相同</font>";
-            document.getElementById("loginBtn").disabled = true;
+        if (pwd1 === pwd2) {
+            document.getElementById("tishi2").innerHTML = "<font color='green'>两次密码相同</font>";
+            return true;
+        } else {
+            document.getElementById("tishi2").innerHTML = "<font color='red'>两次密码不相同</font>";
+            return false;
         }
     }
 
-    form.verify({
-        isExist:function(value){
-            var params = {"userId":value };
-            var data;
-            $.ajax({
-                url: "#",
-                contentType: "application/json",
-                dataType:'json',
-                type: "get",
+    function chongmingver() {
+        var flag = 1;
+        var username = $('#registerUsername').val();
+        $.ajax({
+                type: 'get',
+                url: '/system/namever/' + username,
+                dataType: 'json',
                 async: false,
-                data: JSON.stringify(params),
-                success: function(result) {
-                    data = result.flag;
-
-                },
-
-            });
-            if (data.flag) {
-                return '用户id已存在';
+                success: function (data) {
+                    if (data.code === 0) {
+                        flag = 0;
+                    } else {
+                        flag = 1;
+                    }
+                }
             }
+        );
+        if (flag === 0)
+            return true;
+        else
+            return false;
+    }
 
+    $('#register').click(
+        function () {
+            if (usernamever() && passwordver() && chongmingver()) {
+                var obj = {'username': $('#registerUsername').val(), 'password': $('#registerWellPassword').val()};
+                $.ajax({
+                    url: '/system/register',
+                    type: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json;',
+                    data: JSON.stringify(obj),
+                    success: function (data) {
+                        if (data.msg === '添加成功')
+                            alert('添加成功,是否登录');
+                        else alert('注册失败')
+                    }
+                })
+            } else alert('用户名已存在')
         }
-    });
+    )
+
 </script>
 </body>
 </html>
