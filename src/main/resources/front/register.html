@@ -99,7 +99,7 @@
     }
 
     function chongmingver() {
-        var flag = 1;
+        var flag = false;
         var username = $('#registerUsername').val();
         $.ajax({
                 type: 'get',
@@ -108,17 +108,14 @@
                 async: false,
                 success: function (data) {
                     if (data.code === 0) {
-                        flag = 0;
+                        flag = true;
                     } else {
-                        flag = 1;
+                        flag = false;
                     }
                 }
             }
         );
-        if (flag === 0)
-            return true;
-        else
-            return false;
+        return flag;
     }
 
     $('#register').click(

@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00d6a258-c6bc-4f52-b638-69ed13c73f35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/front/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/front/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -138,7 +135,7 @@
       <workItem from="1575265640123" duration="8116000" />
       <workItem from="1575369415306" duration="10037000" />
       <workItem from="1575419727914" duration="22671000" />
-      <workItem from="1575506124999" duration="15797000" />
+      <workItem from="1575506124999" duration="16490000" />
     </task>
     <task id="LOCAL-00001" summary="2019.11.18">
       <created>1574053701215</created>
@@ -175,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575466051895</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2019.12.5前端">
+      <created>1575523091779</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575523091779</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +217,7 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/ConstantineWang/Java_Spring&#10;&#10;# Conflicts:&#10;#&#9;.gitignore" />
     <MESSAGE value="2019.12.1前端" />
     <MESSAGE value="2019.12.4前端" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019.12.4前端" />
+    <MESSAGE value="2019.12.5前端" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019.12.5前端" />
   </component>
 </project>
