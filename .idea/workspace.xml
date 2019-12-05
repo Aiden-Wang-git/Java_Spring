@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00d6a258-c6bc-4f52-b638-69ed13c73f35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/front/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/register.html" afterDir="false" />
-    </list>
+    <list default="true" id="00d6a258-c6bc-4f52-b638-69ed13c73f35" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,7 @@
       <workItem from="1575265640123" duration="8116000" />
       <workItem from="1575369415306" duration="10037000" />
       <workItem from="1575419727914" duration="22671000" />
-      <workItem from="1575506124999" duration="16490000" />
+      <workItem from="1575506124999" duration="16534000" />
     </task>
     <task id="LOCAL-00001" summary="2019.11.18">
       <created>1574053701215</created>
@@ -179,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575523091779</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="2019.12.5前端">
+      <created>1575527054139</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575527054139</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
