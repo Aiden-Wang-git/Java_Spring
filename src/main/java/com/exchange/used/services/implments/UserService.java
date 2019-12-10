@@ -5,12 +5,19 @@ import com.exchange.used.entity.User;
 import com.exchange.used.repository.UserRepository;
 import com.exchange.used.services.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService implements UserServiceI {
     @Autowired
     UserRepository repository;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
     @Override
     public LayuiResult login(String username, String password) {
         LayuiResult layuiResult = new LayuiResult();
@@ -60,6 +67,31 @@ public class UserService implements UserServiceI {
         }catch (Exception e){
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public List<User> getAllUsers(String sql) {
+        try {
+            List<User> list = new ArrayList<>();
+            list = jdbcTemplate.query(sql,new Object[]{},new BeanPropertyRowMapper<>(User.class));
+            if (list.size()>0)
+                return list;
+            else return null;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    @Override
+    public int total(String sql) {
+        try {
+            return jdbcTemplate.queryForObject(sql,Integer.class);
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
         }
     }
 }

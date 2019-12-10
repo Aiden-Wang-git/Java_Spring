@@ -17,7 +17,7 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/exchange_used?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password:
+    password: 123456
     username: root
     platform: org.hibernate.dialect.MySQL5InnoDBDialect
 

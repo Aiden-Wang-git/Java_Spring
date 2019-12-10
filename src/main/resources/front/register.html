@@ -129,12 +129,14 @@
                     contentType: 'application/json;',
                     data: JSON.stringify(obj),
                     success: function (data) {
-                        if (data.msg === '添加成功')
+                        if (data.msg === '添加成功'){
                             alert('添加成功,是否登录');
+                            location.href = 'login.html';
+                        }
                         else alert('注册失败')
                     }
                 })
-            } else alert('用户名已存在')
+            } else alert('用户名已存在或者用户名不合法')
         }
     )
 

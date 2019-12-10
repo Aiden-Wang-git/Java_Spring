@@ -6,24 +6,37 @@
     <title>SHOU二手书市场</title>
     <link rel="stylesheet" href="/front/layui/css/layui.css">
     <script src="/front/libs/jquery-3.4.1.min.js"></script>
+    <style>
+        .subcontent {
+            float: left;
+            padding: 20px 10px;
+            width: 70%;
+            height: 100%;
+            display: none;
+        }
+        .subcontent_display {
+            display: block;
+        }
+    </style>
 </head>
+
 <body class="layui-layout-body">
-<script src="/front/layui/layui.all.js"></script>
+
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">管理平台</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="javascript:;">客户服务</a>
+            <li class="layui-nav-item"><a href="javascript:">客户服务</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">帮助中心</a> </dd>
-                    <dd><a href="">售后服务</a> </dd>
-                    <dd><a href="">在线客服</a> </dd>
-                    <dd><a href="">意见中心</a> </dd>
+                    <dd><a href="">帮助中心</a></dd>
+                    <dd><a href="">售后服务</a></dd>
+                    <dd><a href="">在线客服</a></dd>
+                    <dd><a href="">意见中心</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:;">常用网址</a>
+                <a href="javascript:">常用网址</a>
                 <dl class="layui-nav-child">
                     <dd><a href="">我的消息</a></dd>
                     <dd><a href="">我要登录</a></dd>
@@ -33,7 +46,7 @@
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <a href="javascript:;">
+                <a href="javascript:">
                     <img src="/front/layui/images/IMG_0870.JPG" class="layui-nav-img">
                     国服第一锤石
                 </a>
@@ -46,31 +59,32 @@
         </ul>
     </div>
 
-    <div class="layui-side layui-bg-black ">
+    <!--    左侧导航栏-->
+    <div class="layui-side layui-bg-black " id="left">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item ">
-                    <a class="" href="javascript:;">用户权限管理</a>
+                    <a class="" href="javascript:">用户权限管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">用户信息</a></dd>
-                        <dd><a href="javascript:;">收货地址</a></dd>
-                        <dd><a href="javascript:;">购物车</a></dd>
+                        <dd><a href="javascript:" id="userinformation">用户信息</a></dd>
+                        <dd><a href="javascript:">收货地址</a></dd>
+                        <dd><a href="javascript:">购物车</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">商品管理</a>
+                    <a href="javascript:">商品管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="new_file.html">商品列表</a></dd>
-                        <dd><a href="javascript:;">发布商品</a></dd>
+                        <dd><a href="javascript:" id="goodslist">商品列表</a></dd>
+                        <dd><a href="javascript:">发布商品</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascrpit:;">交易管理</a>
+                    <a href="javascript:">交易管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">查看账单</a> </dd>
-                        <dd><a href="javascript:;">我的红包</a> </dd>
-                        <dd><a href="javascript:;">我的快递</a> </dd>
+                        <dd><a href="javascript:">查看账单</a></dd>
+                        <dd><a href="javascript:">我的红包</a></dd>
+                        <dd><a href="javascript:">我的快递</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -78,10 +92,37 @@
     </div>
 
     <div class="layui-body">
-        <!-- 内容主体区域 -->
-        <div style="padding: 15px;">主体</div>
+<!--            用户信息-->
+        <div class="subcontent">
+            <span class="searchbar_span">用户名:</span>
+            <input type="text" name="username" id="demoReload" required lay-verify="required" placeholder="请输入用户名"
+                   autocomplete="off"
+                   class="searchbar_input">
+            <span class="searchbar_span">用户权限:</span>
+            <select name="power" id="power" class="searchbar_select searchbar_select_option" lay-verify="">
+                <option value=""></option>
+                <option value="1">管理员</option>
+                <option value="2">普通用户</option>
+            </select>
+            <button id="searchbtn" data-type="reload" class="layui-btn layui-btn-normal searchbar_button">检索</button>
+            <div class="div_table">
+                <table class="layui-hide" id="datatable" lay-filter="useruv"></table>
+                <script type="text/html" id="barDemo">
+                    <a class="layui-btn layui-btn-warm layui-btn-sm" lay-event="detail">查看</a>
+                    <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="edit">编辑</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
+                </script>
+            </div>
+        </div>
+        <div class="subcontent">收货地址</div>
+        <div class="subcontent">购物车</div>
+        <div class="subcontent">商品列表</div>
+        <div class="subcontent">发布商品</div>
+        <div class="subcontent">查看账单</div>
+        <div class="subcontent">我的红包</div>
+        <div class="subcontent">我的快递</div>
     </div>
-
+    <!--    底部区域-->
     <div class="layui-footer">
         <!-- 底部固定区域 -->
         © layui.com - 底部固定区域
@@ -89,15 +130,273 @@
 </div>
 <script src="/front/layui/layui.js"></script>
 <script>
-
-
-
-
     //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
+    $(function () {
+        //动画
+        layui.use('element', function () {
+            var element = layui.element;
+        });
 
-    });
+        //将subcontent加入数组
+        var arr_a = $("#left dd a");
+        var arr_subcontent = $(".subcontent");
+
+        arr_a.eq(0).click(function () {
+            for (var j = 0; j < arr_subcontent.length; ++j) {
+                if (arr_subcontent.eq(j).hasClass("subcontent_display") && j !== 0) {
+                    arr_subcontent.eq(j).removeClass("subcontent_display");
+                }
+                if (j === 0) {
+                    arr_subcontent.eq(j).addClass("subcontent_display");
+                    subcontent_0();
+                }
+            }
+        });
+
+        arr_a.eq(1).click(function () {
+            for (var j = 0; j < arr_a.length; ++j) {
+                if (arr_subcontent.eq(j).hasClass("subcontent_display") && j !== 1) {
+                    arr_subcontent.eq(j).removeClass("subcontent_display");
+                }
+                if (j == 1) {
+                    arr_subcontent.eq(j).addClass("subcontent_display");
+                    subcontent_1();
+                }
+            }
+        });
+
+        arr_a.eq(2).click(function () {
+            for (var j = 0; j < arr_a.length; ++j) {
+                if (arr_subcontent.eq(j).hasClass("subcontent_display") && j !== 2) {
+                    arr_subcontent.eq(j).removeClass("subcontent_display");
+                }
+                if (j === 2) {
+                    arr_subcontent.eq(j).addClass("subcontent_display");
+                    subcontent_2();
+                }
+            }
+        });
+
+        arr_a.eq(3).click(function () {
+            for (var j = 0; j < arr_a.length; ++j) {
+                if (arr_subcontent.eq(j).hasClass("subcontent_display") && j !== 3) {
+                    arr_subcontent.eq(j).removeClass("subcontent_display");
+                }
+                if (j === 3) {
+                    arr_subcontent.eq(j).addClass("subcontent_display");
+                    subcontent_3();
+                }
+            }
+        });
+
+        arr_a.eq(4).click(function () {
+            for (var j = 0; j < arr_a.length; ++j) {
+                if (arr_subcontent.eq(j).hasClass("subcontent_display") && j !== 4) {
+                    arr_subcontent.eq(j).removeClass("subcontent_display");
+                }
+                if (j === 4) {
+                    arr_subcontent.eq(j).addClass("subcontent_display");
+                    subcontent_4();
+                }
+            }
+        });
+
+        arr_a.eq(5).click(function () {
+            for (var j = 0; j < arr_a.length; ++j) {
+                if (arr_subcontent.eq(j).hasClass("subcontent_display") && j !== 5) {
+                    arr_subcontent.eq(j).removeClass("subcontent_display");
+                }
+                if (j === 5) {
+                    arr_subcontent.eq(j).addClass("subcontent_display");
+                    subcontent_5();
+                }
+            }
+        });
+
+        arr_a.eq(6).click(function () {
+            for (var j = 0; j < arr_a.length; ++j) {
+                if (arr_subcontent.eq(j).hasClass("subcontent_display") && j !== 6) {
+                    arr_subcontent.eq(j).removeClass("subcontent_display");
+                }
+                if (j === 6) {
+                    arr_subcontent.eq(j).addClass("subcontent_display");
+                    subcontent_6();
+                }
+            }
+        });
+
+        arr_a.eq(7).click(function () {
+            for (var j = 0; j < arr_a.length; ++j) {
+                if (arr_subcontent.eq(j).hasClass("subcontent_display") && j !== 7) {
+                    arr_subcontent.eq(j).removeClass("subcontent_display");
+                }
+                if (j === 7) {
+                    arr_subcontent.eq(j).addClass("subcontent_display");
+                    subcontent_7();
+                }
+            }
+        });
+
+        function subcontent_0() {
+            //数据表格渲染以及相应的操作
+            layui.use('table', function () {
+                var table = layui.table;
+                //方法级渲染
+                table.render({
+                    elem: '#datatable'
+                    , url: "/system/users"
+                    , method: 'post'
+                    , cols: [
+                        [
+                            {checkbox: true, fixed: true}
+                            , {field: 'username', align: 'center', title: '用户名', width: 120}
+                            , {field: 'realname', align: 'center', title: '真实姓名', width: 120}
+                            , {field: 'sex', align: 'center', title: '性别', width: 60}
+                            , {field: 'age', align: 'center', title: '年龄', width: 80, sort: true}
+                            , {field: 'phone', align: 'center', title: '手机号', width: 130}
+                            , {field: 'email', align: 'center', title: '邮箱', width: 180}
+                            , {field: 'power', align: 'center', title: '权限', width: 100, sort: true}
+                            , {title: '操作', align: 'center', width: 195, toolbar: "#barDemo"}
+                        ]
+                    ]
+                    , id: 'mytable'
+                    , page: true
+                    , width: 1043
+                    , height: 480
+                    , parseData: function (res) { //将原始数据解析成 table 组件所规定的数据
+                        return {
+                            "code": res.code, //解析接口状态
+                            "msg": res.msg, //解析提示文本
+                            "count": res.count, //解析数据长度
+                            "data": res.data.users //解析数据列表
+                        };
+                    }
+                });
+
+
+                //监听表格复选框选择
+                table.on('checkbox(useruv)', function (obj) {
+                    console.log(obj)
+                });
+                //监听工具条,操作按钮
+                table.on('tool(useruv)', function (obj) {
+                    var data = obj.data;
+                    if (obj.event === 'detail') {
+                        //查看操作
+                        layer.open({
+                            btn: "确定",
+                            type: 1,
+                            closeBtn: 1, //关闭按钮是否显示 1显示0不显示
+                            title: data.username + "的详细信息", //页面标题
+                            shadeClose: true, //点击遮罩区域是否关闭页面
+                            shade: 0.5,  //遮罩透明度
+                            area: ['450px', '550px'],  //弹出层页面比例
+                            content: "</br>" + "用户名: " + data.username + "</br></br>" + "真实姓名: " + data.realname + "</br></br>" + "性别: " + data.sex + "</br></br>" +
+                                "年龄: " + data.age + "</br></br>" + "手机号: " + data.phone + "</br></br>" + "邮箱: " + data.email + "</br></br>" + "角色: " + data.power
+                        })
+                    } else if (obj.event === 'del') {
+                        layer.confirm('真的删除该用户吗', function (index) {
+                            $.ajax({
+                                url: "/system/deletebyid/" + data.id,
+                                type: "POST",
+                                dataType: "json",
+                                success: function (result) {
+                                    if (result.msg === "删除成功") {
+                                        obj.del();
+                                        layer.close(index);
+                                        layer.msg("删除成功", {icon: 6});
+                                    } else {
+                                        layer.msg("删除失败", {icon: 5});
+                                    }
+                                }
+                            });
+                        });
+                    } else if (obj.event === 'edit') {
+                        //编辑弹出框
+                        if (data.power === "管理员") {
+                            layer.confirm('确定将该用户权限设置成普通用户吗?', function (index) {
+                                $.ajax({
+                                    url: "/system/updatepower/" + data.id,
+                                    type: "get",
+                                    dataType: "json",
+                                    success: function (result) {
+                                        if (result.msg === "修改成功") {
+                                            window.location.reload();
+                                            layer.msg("修改成功", {icon: 6});
+                                        } else {
+                                            layer.msg("修改失败", {icon: 5});
+                                        }
+                                    }
+                                });
+                            });
+                        } else {
+                            layer.confirm('确定将该用户权限设置成管理员吗?', function (index) {
+                                $.ajax({
+                                    url: "/system/updatepower/" + data.id,
+                                    type: "get",
+                                    dataType: "json",
+                                    success: function (result) {
+                                        if (result.msg === "修改成功") {
+                                            window.location.reload();
+                                            layer.msg("修改成功", {icon: 6});
+                                        } else {
+                                            layer.msg("修改失败", {icon: 5});
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                    }
+                });
+
+
+                //用户名查询数据重载
+                // $('#searchbtn').on('click', function () {
+                //     //执行重载
+                //     table.reload('mytable', {
+                //         url: "/system/getbycondition",
+                //         method: "get",
+                //         page: {
+                //             curr: 1 //重新从第 1 页开始
+                //         }, where: {
+                //             username: $('#demoReload').val().trim(),
+                //             power: $('#power option:selected').text()
+                //         }
+                //     });
+                // });
+            });
+        };
+
+        function subcontent_1() {
+
+        }
+
+        function subcontent_2() {
+            alert("sub2");
+        }
+
+        function subcontent_3() {
+            alert("sub3");
+
+        }
+
+        function subcontent_4() {
+            alert("sub4");
+        }
+
+        function subcontent_5() {
+            alert("sub5");
+        }
+
+        function subcontent_6() {
+            alert("sub6");
+        }
+
+        function subcontent_7() {
+            alert("sub7");
+        }
+    })
+
 </script>
 </body>
 </html>
