@@ -11,4 +11,5 @@ public interface UserServiceI {
     boolean add(User user);
     List<User> getAllUsers(String sql);
     int total(String sql);
+    boolean deleteuser(String id);
 }

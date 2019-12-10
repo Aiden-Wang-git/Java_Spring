@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00d6a258-c6bc-4f52-b638-69ed13c73f35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Condition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/DataUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/SqlBulider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Symbol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Where.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/LayuiResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/LayuiResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/services/UserServiceI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/services/UserServiceI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/services/implments/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/services/implments/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/front/manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/manage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/front/new_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/new_file.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/front/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +155,7 @@
       <workItem from="1575506124999" duration="16534000" />
       <workItem from="1575540681271" duration="2930000" />
       <workItem from="1575941434079" duration="978000" />
-      <workItem from="1575943121054" duration="30329000" />
+      <workItem from="1575943121054" duration="33307000" />
     </task>
     <task id="LOCAL-00001" summary="2019.11.18">
       <created>1574053701215</created>
@@ -223,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575540798982</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2019.12.10前端">
+      <created>1575980750606</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575980750606</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +259,7 @@
     <MESSAGE value="2019.12.1前端" />
     <MESSAGE value="2019.12.4前端" />
     <MESSAGE value="2019.12.5前端" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019.12.5前端" />
+    <MESSAGE value="2019.12.10前端" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019.12.10前端" />
   </component>
 </project>

@@ -67,6 +67,22 @@ public class SystemController {
         return convertData(sqlBulider.getSql(),sqlBulider.getCountSql());
     }
 
+    @RequestMapping(value = "/deleteuser/{id}",method = RequestMethod.POST)
+    public LayuiResult deleteuser(@PathVariable String id){
+        LayuiResult layuiResult = new LayuiResult();
+        boolean flag = userServiceI.deleteuser(id);
+        if (flag){
+            layuiResult.setCode(0);
+            layuiResult.setMsg("删除成功");
+            return layuiResult;
+        }
+        else {
+            layuiResult.setCode(-1);
+            layuiResult.setMsg("删除失败");
+            return layuiResult;
+        }
+    }
+
     public LayuiResult convertData(String sql, String countsql){
         LayuiResult result = new LayuiResult();
         java.util.List<User> list = userServiceI.getAllUsers(sql);

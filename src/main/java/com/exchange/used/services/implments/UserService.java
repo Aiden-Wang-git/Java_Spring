@@ -94,4 +94,18 @@ public class UserService implements UserServiceI {
             return -1;
         }
     }
+
+    @Override
+    public boolean deleteuser(String id) {
+        try {
+            User user = repository.getByUserid(id);
+            if (user != null){
+                repository.delete(user);
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

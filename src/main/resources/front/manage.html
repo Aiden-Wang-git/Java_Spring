@@ -48,7 +48,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:">
                     <img src="/front/layui/images/IMG_0870.JPG" class="layui-nav-img">
-                    国服第一锤石
+                    <a href="#" class="username"></a>//页面显示用户的姓名
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
@@ -132,6 +132,18 @@
 <script>
     //JavaScript代码区域
     $(function () {
+        $.ajax({
+            type:"get",
+            url:"/system/username",
+            data:"json",
+            success:function(data){
+                if (data.code == 0){
+
+                }
+            }
+
+        })
+
         //动画
         layui.use('element', function () {
             var element = layui.element;
@@ -297,11 +309,11 @@
                     } else if (obj.event === 'del') {
                         layer.confirm('真的删除该用户吗', function (index) {
                             $.ajax({
-                                url: "/system/deletebyid/" + data.id,
+                                url: "/system/deleteuser/" + data.id,
                                 type: "POST",
                                 dataType: "json",
                                 success: function (result) {
-                                    if (result.msg === "删除成功") {
+                                    if (result.code === 0) {
                                         obj.del();
                                         layer.close(index);
                                         layer.msg("删除成功", {icon: 6});
