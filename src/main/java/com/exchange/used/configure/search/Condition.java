@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class Condition {
     private String tablename;
-    private Map<String,String> relationship = new LinkedHashMap<>();
+    private Map<String,String> relationship = new LinkedHashMap<>();//两个string都是表明.字段名
     private Order order;
     private Integer page;
     private Integer limit;

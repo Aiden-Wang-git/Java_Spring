@@ -19,6 +19,8 @@ public class Where {
         this.symbol = symbol;
     }
 
+    public Where(){}
+
     public String getField() {
         return field;
     }

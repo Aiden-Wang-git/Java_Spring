@@ -1,9 +1,7 @@
 package com.exchange.used.controler;
 
 import com.exchange.used.configure.LayuiResult;
-import com.exchange.used.configure.search.Condition;
-import com.exchange.used.configure.search.DataUser;
-import com.exchange.used.configure.search.SqlBulider;
+import com.exchange.used.configure.search.*;
 import com.exchange.used.entity.User;
 import com.exchange.used.services.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +79,51 @@ public class SystemController {
             layuiResult.setMsg("删除失败");
             return layuiResult;
         }
+    }
+
+    @RequestMapping(value = "/username",method = RequestMethod.GET)
+    public LayuiResult getusername(HttpServletRequest request){
+        LayuiResult layuiResult = new LayuiResult();
+        Object object = request.getSession().getAttribute("user");
+        User user = (User) object;
+        if (user!=null){
+            layuiResult.setCode(0);
+            layuiResult.setMsg(user.getUsername());
+            layuiResult.getData().put(user.getUsername(),user);
+            return layuiResult;
+        }
+        else {
+            layuiResult.setCode(-1);
+            layuiResult.setMsg("错误！");
+            layuiResult.getData().put("位置用户名",null);
+            return layuiResult;
+        }
+    }
+
+    @RequestMapping(value = "/searchusers",method = RequestMethod.GET)
+    public LayuiResult searchusers (@RequestParam String username,@RequestParam String power,@RequestParam Integer page,@RequestParam Integer limit){
+        Condition condition = new Condition();
+        condition.setTablename("users");
+        condition.setPage(page);
+        condition.setLimit(limit);
+        if (username.length()>0){
+            Where where1 = new Where();
+            where1.setField("users.username");
+            where1.setValue(username);
+            where1.setSymbol(Symbol.E);
+            condition.getWheres().add(where1);
+        }
+        if (power.length()>0){
+            Where where2 = new Where();
+            where2.setField("users.fkroleid");
+            if (power.equals("管理员"))
+            where2.setValue("1");
+            else where2.setValue("2");
+            where2.setSymbol(Symbol.D);
+            condition.getWheres().add(where2);
+        }
+        SqlBulider sqlBulider = new SqlBulider(condition);
+        return convertData(sqlBulider.getSql(),sqlBulider.getCountSql());
     }
 
     public LayuiResult convertData(String sql, String countsql){

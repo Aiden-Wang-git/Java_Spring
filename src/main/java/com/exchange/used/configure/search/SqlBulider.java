@@ -41,7 +41,7 @@ public class SqlBulider {
     private void setrelation() {
         if (condition.getRelationship().size()>=1){
             for (Map.Entry<String,String> entry:condition.getRelationship().entrySet()){
-                sql.append(" left join " + entry.getValue().split("\\.")[0]);
+                sql.append(" left join " + entry.getValue().split(".")[0]);
                 sql.append(" on "+entry.getKey() + "=" +entry.getValue());
             }
         }

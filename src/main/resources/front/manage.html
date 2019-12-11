@@ -10,10 +10,11 @@
         .subcontent {
             float: left;
             padding: 20px 10px;
-            width: 70%;
+            width: 100%;
             height: 100%;
             display: none;
         }
+
         .subcontent_display {
             display: block;
         }
@@ -48,10 +49,11 @@
             <li class="layui-nav-item">
                 <a href="javascript:">
                     <img src="/front/layui/images/IMG_0870.JPG" class="layui-nav-img">
-                    <a href="#" class="username"></a>//页面显示用户的姓名
+                    <!--                    页面显示用户的姓名-->
+                    <span id="username"></span>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="#" id="basics">基本资料</a></dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
@@ -92,19 +94,27 @@
     </div>
 
     <div class="layui-body">
-<!--            用户信息-->
+        <!--            用户信息-->
         <div class="subcontent">
-            <span class="searchbar_span">用户名:</span>
-            <input type="text" name="username" id="demoReload" required lay-verify="required" placeholder="请输入用户名"
-                   autocomplete="off"
-                   class="searchbar_input">
-            <span class="searchbar_span">用户权限:</span>
-            <select name="power" id="power" class="searchbar_select searchbar_select_option" lay-verify="">
-                <option value=""></option>
-                <option value="1">管理员</option>
-                <option value="2">普通用户</option>
-            </select>
+            <label class="layui-form-label">用户名</label>
+                <input dir="ltr" type="text" name="title" id="demoReload" style="width: 200px">
+            <label class="layui-form-label">搜索选择框</label>
+                <select name="modules" lay-verify="required" lay-search="" id="power">
+                    <option value="">直接选择或搜索选择</option>
+                    <option value="1">管理员</option>
+                    <option value="2">普通用户</option>
+                </select>
+<!--            <select name="power" id="power" class="searchbar_select searchbar_select_option" lay-verify="">-->
+<!--                <option value=""></option>-->
+<!--                <option value="1">管理员</option>-->
+<!--                <option value="2">普通用户</option>-->
+<!--            </select>-->
             <button id="searchbtn" data-type="reload" class="layui-btn layui-btn-normal searchbar_button">检索</button>
+
+            <!--            <select name="power" id="power" class="searchbar_select searchbar_select_option" lay-verify="">-->
+            <!--                <option value="1">管理员</option>-->
+            <!--                <option value="2">一般用户</option>-->
+            <!--            </select>-->
             <div class="div_table">
                 <table class="layui-hide" id="datatable" lay-filter="useruv"></table>
                 <script type="text/html" id="barDemo">
@@ -133,20 +143,40 @@
     //JavaScript代码区域
     $(function () {
         $.ajax({
-            type:"get",
-            url:"/system/username",
-            data:"json",
-            success:function(data){
-                if (data.code == 0){
-
+            type: "get",
+            url: "/system/username",
+            data: "json",
+            success: function (data) {
+                if (data.code === 0) {
+                    document.getElementById("username").innerHTML = data.msg;
+                } else {
+                    alert("您还没有登录，请先登录");
+                    window.location.href = "/";
                 }
             }
-
-        })
+        });
 
         //动画
         layui.use('element', function () {
             var element = layui.element;
+        });
+
+        layui.use('layer', function () {
+            var layer = layui.layer;
+        })
+
+        $('#basics').click(function () {
+            layer.open({
+                btn: "确定",
+                btnAlign: 'c',
+                type: 1,
+                closeBtn: 1, //关闭按钮是否显示 1显示0不显示
+                title: "详细信息", //页面标题
+                shadeClose: true, //点击遮罩区域是否关闭页面
+                shade: 0.5,  //遮罩透明度
+                area: ['450px', '550px'],  //弹出层页面比例
+                content: "这是详细信息",
+            })
         });
 
         //将subcontent加入数组
@@ -285,7 +315,6 @@
                     }
                 });
 
-
                 //监听表格复选框选择
                 table.on('checkbox(useruv)', function (obj) {
                     console.log(obj)
@@ -296,6 +325,7 @@
                     if (obj.event === 'detail') {
                         //查看操作
                         layer.open({
+                            btnAlign: 'c',
                             btn: "确定",
                             type: 1,
                             closeBtn: 1, //关闭按钮是否显示 1显示0不显示
@@ -342,9 +372,9 @@
                                 });
                             });
                         } else {
-                            layer.confirm('确定将该用户权限设置成管理员吗?', function (index) {
+                            layer.confirm('确定要修改该用户的信息吗?', function (index) {
                                 $.ajax({
-                                    url: "/system/updatepower/" + data.id,
+                                    url: "/system/alter/" + data.id,
                                     type: "get",
                                     dataType: "json",
                                     success: function (result) {
@@ -361,21 +391,20 @@
                     }
                 });
 
+                $("#searchbtn").click(function () {
+                    table.reload('mytable', {
+                        url: "/system/searchusers",
+                        method: "get",
+                        page: {
+                            curr: 1
+                        },
+                        where: {
+                            username: $("#demoReload").val().trim(),
+                            power: $("#power dd a").text()
+                        }
+                    })
+                })
 
-                //用户名查询数据重载
-                // $('#searchbtn').on('click', function () {
-                //     //执行重载
-                //     table.reload('mytable', {
-                //         url: "/system/getbycondition",
-                //         method: "get",
-                //         page: {
-                //             curr: 1 //重新从第 1 页开始
-                //         }, where: {
-                //             username: $('#demoReload').val().trim(),
-                //             power: $('#power option:selected').text()
-                //         }
-                //     });
-                // });
             });
         };
 
@@ -384,28 +413,27 @@
         }
 
         function subcontent_2() {
-            alert("sub2");
+
         }
 
         function subcontent_3() {
-            alert("sub3");
 
         }
 
         function subcontent_4() {
-            alert("sub4");
+
         }
 
         function subcontent_5() {
-            alert("sub5");
+
         }
 
         function subcontent_6() {
-            alert("sub6");
+
         }
 
         function subcontent_7() {
-            alert("sub7");
+
         }
     })
 
