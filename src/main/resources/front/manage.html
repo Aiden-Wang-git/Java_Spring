@@ -96,25 +96,21 @@
     <div class="layui-body">
         <!--            用户信息-->
         <div class="subcontent">
-            <label class="layui-form-label">用户名</label>
-                <input dir="ltr" type="text" name="title" id="demoReload" style="width: 200px">
-            <label class="layui-form-label">搜索选择框</label>
-                <select name="modules" lay-verify="required" lay-search="" id="power">
-                    <option value="">直接选择或搜索选择</option>
-                    <option value="1">管理员</option>
-                    <option value="2">普通用户</option>
-                </select>
-<!--            <select name="power" id="power" class="searchbar_select searchbar_select_option" lay-verify="">-->
-<!--                <option value=""></option>-->
-<!--                <option value="1">管理员</option>-->
-<!--                <option value="2">普通用户</option>-->
-<!--            </select>-->
-            <button id="searchbtn" data-type="reload" class="layui-btn layui-btn-normal searchbar_button">检索</button>
-
-            <!--            <select name="power" id="power" class="searchbar_select searchbar_select_option" lay-verify="">-->
-            <!--                <option value="1">管理员</option>-->
-            <!--                <option value="2">一般用户</option>-->
-            <!--            </select>-->
+            <div class="layui-form-item">
+                <label class="layui-form-label">短输入框</label>
+                <div class="layui-input-inline">
+                    <input id="demoReload" type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">搜索选择框</label>
+                               <select class="layui-select" id="power">
+                                   <option class="layui-select-tips">请选择</option>
+                                   <option value="1">管理员</option>
+                                   <option value="2">普通用户</option>
+                               </select>
+                    <button id="searchbtn" data-type="reload" class="layui-btn layui-btn-normal searchbar_button">检索</button>
+                </div>
+            </div>
             <div class="div_table">
                 <table class="layui-hide" id="datatable" lay-filter="useruv"></table>
                 <script type="text/html" id="barDemo">
@@ -400,7 +396,7 @@
                         },
                         where: {
                             username: $("#demoReload").val().trim(),
-                            power: $("#power dd a").text()
+                            power: $("#power option:selected").text()
                         }
                     })
                 })

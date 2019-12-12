@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00d6a258-c6bc-4f52-b638-69ed13c73f35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/SqlBulider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/SqlBulider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Where.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Where.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/goods.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/goods.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/front/manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/manage.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,23 +57,23 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last.edited.regexp" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyPractice01/MyPractice01" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/front" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://gitee.com/lingqiufeng/bm-rms.git" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\28586\Desktop\Java_Spring\src\main\resources" />
-      <recent name="C:\Users\28586\Desktop\Java_study\Java_Spring\src\main\java\front\libs" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\28586\Desktop\Java_study\Java_Spring\src\main\resources\front" />
       <recent name="C:\Users\28586\Desktop\Java_study\Java_Spring\src\main\resources\front\picture" />
       <recent name="C:\Users\28586\Desktop\Java_Spring\src\main\java\com\exchange\used\configure" />
       <recent name="C:\Users\28586\Desktop\Java_Spring\src\main\java\com\exchange\used" />
       <recent name="C:\Users\28586\Desktop\Java_Spring\src\main\java\com\exchange\used\repository_new" />
-      <recent name="C:\Users\28586\Desktop\Java_Spring\src\main\java\com\exchange\used\repository" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\28586\Desktop\Java_Spring\src\main\resources" />
+      <recent name="C:\Users\28586\Desktop\Java_study\Java_Spring\src\main\java\front\libs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -156,7 +153,8 @@
       <workItem from="1575540681271" duration="2930000" />
       <workItem from="1575941434079" duration="978000" />
       <workItem from="1575943121054" duration="33477000" />
-      <workItem from="1576024408092" duration="18664000" />
+      <workItem from="1576024408092" duration="21930000" />
+      <workItem from="1576111527872" duration="7776000" />
     </task>
     <task id="LOCAL-00001" summary="2019.11.18">
       <created>1574053701215</created>
@@ -228,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575983638737</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="2019.12.11前端">
+      <created>1576057156328</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1576057156328</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +273,7 @@
     <MESSAGE value="2019.12.4前端" />
     <MESSAGE value="2019.12.5前端" />
     <MESSAGE value="2019.12.10前端" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019.12.10前端" />
+    <MESSAGE value="2019.12.11前端" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019.12.11前端" />
   </component>
 </project>
