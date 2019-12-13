@@ -202,6 +202,13 @@
             <div id="email-aux" class="aux-self-word"></div>
         </div>
         <div class="layui-form-item">
+            <label class="layui-form-label">年龄</label>
+            <div class="layui-input-block">
+                <input id="age" type="text" name="age" placeholder="请输入真实年龄" autocomplete="off" class="layui-input">
+            </div>
+            <div id="age-aux" class="aux-self-word"></div>
+        </div>
+        <div class="layui-form-item">
             <label class="layui-form-label">性别</label>
             <div class="layui-input-block" id="sex"> 
                 <input name="sex" title="男" type="radio" checked="" value="男">
@@ -210,34 +217,27 @@
             <div id="sex-aux" class="aux-self-word"></div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">年龄</label>
-            <div class="layui-input-block">
-                <input id="age" type="text" name="age" placeholder="请输入真实年龄" autocomplete="off" class="layui-input">
-            </div>
-            <div id="age-aux" class="aux-self-word"></div>
-        </div>
-        <div class="layui-form-item">
             <label class="layui-form-label">权限</label>
             <div class="layui-input-block" id="role"> 
-                <input name="fkroleid" title="管理员" type="radio" checked="" value="管理员">
-                <input name="fkroleid" title="普通用户" type="radio" checked="" value="普通用户">                                 
+                <input name="role" title="管理员" type="radio" checked="" value="管理员">
+                <input name="role" title="普通用户" type="radio" checked="" value="普通用户">                                 
             </div>
             <div id="fkroleid-aux" class="aux-self-word"></div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                <button lay-submit="" lay-filter="suu" class="layui-btn layui-btn-normal tijiao">提交</button>
+                <button lay-submit="" id="submit" lay-filter="suu" class="layui-btn layui-btn-normal tijiao">提交</button>
             </div>
         </div>
     </form>
 </div>
 
 //JavaScript代码区域
-<script src="/front/layui/layui.js"></script>
 </body>
 </html>
 
+<script src="/front/layui/layui.js"></script>
 
 <script>
     $(function () {
@@ -441,7 +441,8 @@
                             content: "</br>" + "用户名: " + data.username + "</br></br>" + "真实姓名: " + data.realname + "</br></br>" + "性别: " + data.sex + "</br></br>" +
                                 "年龄: " + data.age + "</br></br>" + "手机号: " + data.phone + "</br></br>" + "邮箱: " + data.email + "</br></br>" + "角色: " + data.power
                         })
-                    } else if (obj.event === 'del') {
+                    }
+                    else if (obj.event === 'del') {
                         layer.confirm('真的删除该用户吗', function (index) {
                             $.ajax({
                                 url: "/system/deleteuser/" + data.id,
@@ -458,8 +459,9 @@
                                 }
                             });
                         });
-                    } else if (obj.event === 'edit') {
-                        form.render(null,"personinfo");
+                    }
+                    else if (obj.event === 'edit') {
+                        form.render();
                         //编辑弹出框
                         layer.open({
                             type: 1,
@@ -470,23 +472,26 @@
                         //验证表格
                         form.verify({
                         });
-                        //提交表单
-                        form.on('submit(suu)', function () {
-                            var userinfo = {'password': $('#newpwd1').val(), 'realname': $('#realname').val(), 'email': $('#email').val(),'phone':$('#phone').val(),
-                                'sex':$('#sex').val(),'fkroleid':$("#role").val(),'age':$("#age").val()};
-                            $.ajax({
-                                url: '/system/modify/'+obj.data.id,
-                                data: userinfo,
-                                dataType: 'json',
-                                type:'post',
-                                success: function (res) {
-                                    if (res.code ===0) {
-                                       alert("成功");
-                                    } else alert("失败");
-                                },
-                                error: function (data) {}
-                            })
-                        })
+                        $("#submit").click(function () {
+                                var userinfo = {'password': $('#newpwd1').val(), 'realname': $('#realname').val(), 'email': $('#email').val(),'phone':$('#phone').val(),
+                                    'sex':$('#sex input:radio:checked').val(),'age':$("#age").val(),'userid':data.id,'username':data.username,'fkroleid':$("#role input:checked").val()};
+                                $.ajax({
+                                    type:'post',
+                                    url: '/system/modify/',
+                                    data: JSON.stringify(userinfo),
+                                    dataType: 'json',
+                                    contentType: 'application/json;',
+                                    success: function (res) {
+                                        if (res.code ===0) {
+                                           alert("成功");
+                                        } else alert("失败");
+                                    },
+                                    error: function (data) {
+                                        alert("错误")
+                                    }
+                                })
+                        });
+
                     }
                 });
 

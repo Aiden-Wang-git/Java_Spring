@@ -46,6 +46,9 @@ public class SystemController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public LayuiResult register(@RequestBody User user) {
         LayuiResult layuiResult = new LayuiResult();
+        if (user.getFkroleid().equals("管理员"))
+            user.setFkroleid("1");
+        else user.setFkroleid("2");
         if (userServiceI.add(user)) {
             layuiResult.setCode(0);
             layuiResult.setMsg("添加成功");
@@ -128,10 +131,12 @@ public class SystemController {
     }
 
     //更新用户数据
-    @RequestMapping(value = "/modify/{id}",method = RequestMethod.POST)
-    public LayuiResult modify(@RequestBody User user,@PathVariable String id){
+    @RequestMapping(value = "/modify",method = RequestMethod.POST)
+    public LayuiResult modify(@RequestBody User user){
         LayuiResult layuiResult = new LayuiResult();
-        user.setUserid(id);
+        if (user.getFkroleid().equals("管理员"))
+            user.setFkroleid("1");
+        else user.setFkroleid("2");
         boolean flag = userServiceI.modify(user);
         if (flag){
             layuiResult.setCode(0);
@@ -175,11 +180,13 @@ public class SystemController {
         DataUser dataUser = new DataUser();
         dataUser.setId(user.getUserid());
         dataUser.setUsername(user.getUsername());
-        if (user.getAge()!=null) dataUser.setSex(user.getSex());
+        if (user.getAge()!=null) dataUser.setAge(user.getAge());
+        if (user.getSex()!=null) dataUser.setSex(user.getSex());
         if (user.getEmail()!=null) dataUser.setEmail(user.getEmail());
         if (user.getPhone()!=null) dataUser.setRealname(user.getPhone());
         if (user.getRealname()!=null) dataUser.setRealname(user.getRealname());
         if (user.getFkroleid().equals("1")) dataUser.setPower("管理员");
+        if (user.getPhone()!=null) dataUser.setPhone(user.getPhone());
         else dataUser.setPower("一般用户");
         return dataUser;
     }

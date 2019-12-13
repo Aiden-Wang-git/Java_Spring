@@ -13,12 +13,12 @@ public class DataUser {
     private String username;
     private String realname = "";
     private String sex = "";
-    private String age = "";
+    private int age = 0;
     private String phone = "";
     private String email = "";
     private String power = "";
 
-    public DataUser(String id, String username, String realname, String sex, String age, String phone, String email, String power) {
+    public DataUser(String id, String username, String realname, String sex, int age, String phone, String email, String power) {
         this.id = id;
         this.username = username;
         this.realname = realname;
@@ -63,11 +63,11 @@ public class DataUser {
         this.sex = sex;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
