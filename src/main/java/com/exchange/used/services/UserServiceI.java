@@ -12,4 +12,6 @@ public interface UserServiceI {
     List<User> getAllUsers(String sql);
     int total(String sql);
     boolean deleteuser(String id);
+    boolean modify(User user);
+    LayuiResult getuserbyID(String id);
 }

@@ -108,4 +108,28 @@ public class UserService implements UserServiceI {
         }
         return false;
     }
+
+    @Override
+    public boolean modify(User user) {
+        return false;
+    }
+
+    @Override
+    public LayuiResult getuserbyID(String id) {
+        LayuiResult layuiResult = new LayuiResult();
+        try {
+            if (id!=null){
+                User user = repository.getByUserid(id);
+                layuiResult.setCode(0);
+                layuiResult.setMsg("该用户不存在");
+                layuiResult.getData().put(user.getUsername(),user);
+                return layuiResult;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return layuiResult;
+    }
+
+
 }

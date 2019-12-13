@@ -57,8 +57,8 @@
                 </div>
                 <div class="passwordDiv">
                     <select id="roleSelect" class="layui-select">
-                        <option value="0">普通用户</option>
                         <option value="1">管理员</option>
+                        <option value="2">普通用户</option>
                     </select>
                     <input id="register" type="button" class="submit layui-btn layui-btn-primary" value="注册"></input>
                 </div>
@@ -121,7 +121,7 @@
     $('#register').click(
         function () {
             if (usernamever() && passwordver() && chongmingver()) {
-                var obj = {'username': $('#registerUsername').val(), 'password': $('#registerWellPassword').val()};
+                var obj = {'username': $('#registerUsername').val(), 'password': $('#registerWellPassword').val(), 'fkroleid': $('#roleSelect option:selected').val()};
                 $.ajax({
                     url: '/system/register',
                     type: 'post',
@@ -131,7 +131,7 @@
                     success: function (data) {
                         if (data.msg === '添加成功'){
                             alert('添加成功,是否登录');
-                            location.href = 'login.html';
+                            location.href = '/';
                         }
                         else alert('注册失败')
                     }

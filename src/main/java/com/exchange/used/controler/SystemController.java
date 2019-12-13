@@ -5,6 +5,7 @@ import com.exchange.used.configure.search.*;
 import com.exchange.used.entity.User;
 import com.exchange.used.services.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,7 +45,6 @@ public class SystemController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public LayuiResult register(@RequestBody User user) {
         LayuiResult layuiResult = new LayuiResult();
-        user.setFkroleid("2");
         if (userServiceI.add(user)) {
             layuiResult.setCode(0);
             layuiResult.setMsg("添加成功");
@@ -95,7 +95,7 @@ public class SystemController {
         else {
             layuiResult.setCode(-1);
             layuiResult.setMsg("错误！");
-            layuiResult.getData().put("位置用户名",null);
+            layuiResult.getData().put("未知用户名",null);
             return layuiResult;
         }
     }
@@ -125,6 +125,21 @@ public class SystemController {
         SqlBulider sqlBulider = new SqlBulider(condition);
         return convertData(sqlBulider.getSql(),sqlBulider.getCountSql());
     }
+
+    //更新用户数据
+    @RequestMapping(value = "/modify",method = RequestMethod.POST)
+    public LayuiResult modify(@RequestBody User user){
+        LayuiResult layuiResult = new LayuiResult();
+
+        return layuiResult;
+    }
+
+    //根据ID查密码
+    @RequestMapping(value = "getUserByID",method = RequestMethod.GET)
+    public LayuiResult getUserByID(@RequestParam String id){
+        return userServiceI.getuserbyID(id);
+    }
+
 
     public LayuiResult convertData(String sql, String countsql){
         LayuiResult result = new LayuiResult();
