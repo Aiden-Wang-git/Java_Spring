@@ -111,6 +111,14 @@ public class UserService implements UserServiceI {
 
     @Override
     public boolean modify(User user) {
+        try {
+            if (user!=null){
+                repository.save(user);
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return false;
     }
 
@@ -121,7 +129,7 @@ public class UserService implements UserServiceI {
             if (id!=null){
                 User user = repository.getByUserid(id);
                 layuiResult.setCode(0);
-                layuiResult.setMsg("该用户不存在");
+                layuiResult.setMsg(user.getPassword());
                 layuiResult.getData().put(user.getUsername(),user);
                 return layuiResult;
             }

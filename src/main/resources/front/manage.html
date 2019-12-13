@@ -95,7 +95,7 @@
         </div>
     </div>
 
-<!--    左侧导航栏功能实现-->
+    <!--    左侧导航栏功能实现-->
     <div class="layui-body">
 
         <!-- 用户信息-->
@@ -152,11 +152,11 @@
 
 <!--修改个人信息-->
 <div class="modify-pwd-layer aux-self" id="modify" style="display: none">
-    <form class="layui-form" action="" style="height: 1200px; width:320px">
+    <form class="layui-form" action=""  lay-filter="personinfo">
         <div class="layui-form-item">
             <label class="layui-form-label">原密码</label>
             <div class="layui-input-block">
-                <input id="mopwd" type="password" name="title" required lay-verify="required" autofocus
+                <input id="mopwd" type="password" name="title" lay-verify="oldpassword" autofocus
                        placeholder="请输入原密码" autocomplete="off" class="layui-input">
             </div>
             <div id="mopwd-aux" class="aux-self-word"></div>
@@ -172,7 +172,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">再次输入</label>
             <div class="layui-input-block">
-                <input id="newpwd2" type="password" name="title" required lay-verify="required" placeholder="请输入原密码"
+                <input id="newpwd2" type="password" name="title" required lay-verify="newpassword" placeholder="请输入原密码"
                        autocomplete="off" class="layui-input">
             </div>
             <div id="newpwd2-aux" class="aux-self-word"></div>
@@ -203,32 +203,42 @@
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">性别</label>
-            <div class="layui-input-block"> 
+            <div class="layui-input-block" id="sex"> 
                 <input name="sex" title="男" type="radio" checked="" value="男">
                 <input name="sex" title="女" type="radio" checked="" value="女">                                 
             </div>
             <div id="sex-aux" class="aux-self-word"></div>
         </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">年龄</label>
+            <div class="layui-input-block">
+                <input id="age" type="text" name="age" placeholder="请输入真实年龄" autocomplete="off" class="layui-input">
+            </div>
+            <div id="age-aux" class="aux-self-word"></div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">权限</label>
+            <div class="layui-input-block" id="role"> 
+                <input name="fkroleid" title="管理员" type="radio" checked="" value="管理员">
+                <input name="fkroleid" title="普通用户" type="radio" checked="" value="普通用户">                                 
+            </div>
+            <div id="fkroleid-aux" class="aux-self-word"></div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                <button lay-submit="" lay-filter="suu" class="layui-btn layui-btn-normal tijiao">提交</button>
+            </div>
+        </div>
     </form>
-    <div class="layui-form-item">
-        <label class="layui-form-label">年龄</label>
-        <div class="layui-input-block">
-            <input id="age" type="text" name="age" placeholder="请输入真实年龄" autocomplete="off" class="layui-input">
-        </div>
-        <div id="age-aux" class="aux-self-word"></div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">权限</label>
-        <div class="layui-input-block"> 
-            <input name="fkroleid" title="管理员" type="radio" checked="" value="管理员">
-            <input name="fkroleid" title="普通用户" type="radio" checked="" value="普通用户">                                 
-        </div>
-        <div id="fkroleid-aux" class="aux-self-word"></div>
-    </div>
 </div>
 
 //JavaScript代码区域
 <script src="/front/layui/layui.js"></script>
+</body>
+</html>
+
+
 <script>
     $(function () {
 
@@ -255,7 +265,7 @@
         //layer弹出层
         layui.use('layer', function () {
             var layer = layui.layer;
-        })
+        });
 
         //详细信息
         $('#basics').click(function () {
@@ -375,8 +385,9 @@
         //用户信息表格
         function subcontent_0() {
             //数据表格渲染以及相应的操作
-            layui.use('table', function () {
+            layui.use(['table','form'], function () {
                 var table = layui.table;
+                var form = layui.form;
                 //方法级渲染
                 table.render({
                     elem: '#datatable'
@@ -448,74 +459,34 @@
                             });
                         });
                     } else if (obj.event === 'edit') {
+                        form.render(null,"personinfo");
                         //编辑弹出框
                         layer.open({
                             type: 1,
-                            btnaglin:"c",
-                            btn: ['取消','修改'],
-                            btnAlign:'c',
                             title: "修改用户信息",
-                            area: ["400px", "800px"],
-                            content: $("#modify"),
-                            url:"/system/modify/" + data.id,
-                            type: "get",
-                            success: function(result){
-                                // $(document).on('keydown', function(e){
-                                //     if(e.keyCode == 13){
-                                //         deleteFile(index);
-                                //     }
-                                // })
-                                getModifyPwd(data.id);
-                            },
-                            cancel: function(index, layero){
-                                $("#mopwd").val("")
-                                $("#mopwd-aux").css("display", "none")
-                                $("#newpwd1").val("")
-                                $("#newpwd1-aux").css("display", "none")
-                                $("#newpwd2").val("")
-                                $("#newpwd2-aux").css("display", "none")
-                            },
-                            yes: function (index) {
-                                layer.close(index);
-                            },btn2: function (index) {
-                                confirmModifyPwd(index)
-                                return false
-                            }
+                            area: ["480px", "600px"],
+                            content: $("#modify")
                         });
-                        // if (data.power === "管理员") {
-                        //     layer.confirm('确定要修改该用户的信息吗?', function (index) {
-                        //         $.ajax({
-                        //             url: "/system/modify/" + data.id,
-                        //             type: "get",
-                        //             dataType: "json",
-                        //             success: function (result) {
-                        //                 if (result.msg === "修改成功") {
-                        //                     window.location.reload();
-                        //                     layer.msg("修改成功", {icon: 6});
-                        //                 } else {
-                        //                     layer.msg("修改失败", {icon: 5});
-                        //                 }
-                        //             }
-                        //         });
-                        //     });
-                        // } else {
-                        //     layer.confirm('确定要修改该用户的信息吗?', function (index) {
-                        //         showModifyLayer();
-                        //         $.ajax({
-                        //             url: "/system/alter/" + data.id,
-                        //             type: "get",
-                        //             dataType: "json",
-                        //             success: function (result) {
-                        //                 if (result.msg === "修改成功") {
-                        //                     window.location.reload();
-                        //                     layer.msg("修改成功", {icon: 6});
-                        //                 } else {
-                        //                     layer.msg("修改失败", {icon: 5});
-                        //                 }
-                        //             }
-                        //         });
-                        //     });
-                        // }
+                        //验证表格
+                        form.verify({
+                        });
+                        //提交表单
+                        form.on('submit(suu)', function () {
+                            var userinfo = {'password': $('#newpwd1').val(), 'realname': $('#realname').val(), 'email': $('#email').val(),'phone':$('#phone').val(),
+                                'sex':$('#sex').val(),'fkroleid':$("#role").val(),'age':$("#age").val()};
+                            $.ajax({
+                                url: '/system/modify/'+obj.data.id,
+                                data: userinfo,
+                                dataType: 'json',
+                                type:'post',
+                                success: function (res) {
+                                    if (res.code ===0) {
+                                       alert("成功");
+                                    } else alert("失败");
+                                },
+                                error: function (data) {}
+                            })
+                        })
                     }
                 });
 
@@ -564,154 +535,6 @@
 
         }
 
-        // 弹出用户修改信息所需表格
-        function showModifyLayer() {
-            layer.open({
-                type: 1,
-                btn: ['取消','确定'],
-                title: "修改用户信息",
-                area: ["1800px", "320px"],
-                content: $("#modify"),
-                url:"/system/modify/",
-                success: function(layero, index){
-                    $(document).on('keydown', function(e){
-                        if(e.keyCode == 13){
-                            deleteFile(index);
-                        }
-                    })
-                    getModifyPwd()
-                },
-                cancel: function(index, layero){
-                    $("#mopwd").val("")
-                    $("#mopwd-aux").css("display", "none")
-                    $("#newpwd1").val("")
-                    $("#newpwd1-aux").css("display", "none")
-                    $("#newpwd2").val("")
-                    $("#newpwd2-aux").css("display", "none")
-                },
-                yes: function (index) {
-                    layer.close(index);
-                },btn2: function (index) {
-                    confirmModifyPwd(index)
-                    return false
-                }
-            });
-        }
-
-        function getModifyPwd(id) {
-            $("#mopwd").blur(function () {
-                var mopwd = $("#mopwd").val().trim();
-                var pwd = "";
-                if (mopwd.length == 0) {
-                    $("#mopwd-aux").css({
-                        display: "block",
-                        color: "#ff1010",
-                    }).html("请输入原密码")
-                } else {
-                    //发送ajax获得原密码 pwd
-                    $.ajax({
-                        url:"/system/getUserByID" + id,
-                        type:"get",
-                        dataType: "json",
-                        success: function (result) {
-                            if (result!==null)
-                                pwd = result.msg;
-                        }
-                    });
-
-                    if (mopwd !== pwd) {
-                        $("#mopwd-aux").css({
-                            display: "block",
-                            color: "#ff1010",
-                        }).html("密码不正确")
-                    } else {
-                        $("#mopwd-aux").css({
-                            display: "block",
-                            color: "#5FB878"
-                        }).html("输入正确")
-                    }
-                }
-            });
-
-            var newpwd1 = $("#newpwd1").val().trim()
-            $("#newpwd1").blur( function () {
-                newpwd1 = $("#newpwd1").val().trim()
-                if (newpwd1.length == 0) {
-                    $("#newpwd1-aux").css({
-                        display: "block",
-                        color: "#ff1010"
-                    }).html("请输入新密码")
-                } else {
-                    $("#newpwd1-aux").css({
-                        display: "block",
-                        color: "#5FB878"
-                    }).html("输入正确")
-                }
-            });
-
-            $("#newpwd2").focus(function () {
-                var newpwd1 = $("#newpwd1").val().trim();
-                if (newpwd1.length == 0) {
-                    $("#newpwd1-aux").css({
-                        display: "block",
-                        color: "#ff1010"
-                    }).html("请输入新密码")
-                }
-            });
-
-            $("#newpwd2").blur( function () {
-                var newpwd2 = $("#newpwd2").val().trim();
-                if (newpwd2.length == 0) {
-                    $("#newpwd2-aux").css({
-                        display: "block",
-                        color: "#ff1010"
-                    }).html("请输入新密码")
-                } else if (newpwd1 !== newpwd2) {
-                    $("#newpwd2-aux").css({
-                        display: "block",
-                        color: "#ff1010"
-                    }).html("两次输入不一致")
-                    $("#newpwd1-aux").css({
-                        display: "block",
-                        color: "#ff1010"
-                    }).html("两次输入不一致")
-                } else if (newpwd1 === newpwd2 && newpwd1 === pwd) {
-                    $("#newpwd2-aux").css({
-                        display: "block",
-                        color: "#ff1010"
-                    }).html("新密码不能与原密码相同")
-                    $("#newpwd1-aux").css({
-                        display: "block",
-                        color: "#ff1010"
-                    }).html("新密码不能与原密码相同")
-                } else {
-                    $("#newpwd1-aux").css({
-                        display: "block",
-                        color: "#5FB878"
-                    }).html("输入正确")
-                    $("#newpwd2-aux").css({
-                        display: "block",
-                        color: "#5FB878"
-                    }).html("输入正确")
-                    $("#adduserlayer").data("new_pwd", newpwd1)
-                }
-            });
-        }
-
-        function confirmModifyPwd(index) {
-            var newpwd = $("#adduserlayer").data("new_pwd")
-            //发送ajax
-
-            $("#mopwd").val("")
-            $("#mopwd-aux").css("display", "none")
-            $("#newpwd1").val("")
-            $("#newpwd1-aux").css("display", "none")
-            $("#newpwd2").val("")
-            $("#newpwd2-aux").css("display", "none")
-            layer.close(index);
-        }
     })
 
 </script>
-</body>
-</html>

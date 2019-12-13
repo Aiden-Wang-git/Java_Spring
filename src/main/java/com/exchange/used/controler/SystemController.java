@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Id;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,11 +128,21 @@ public class SystemController {
     }
 
     //更新用户数据
-    @RequestMapping(value = "/modify",method = RequestMethod.POST)
-    public LayuiResult modify(@RequestBody User user){
+    @RequestMapping(value = "/modify/{id}",method = RequestMethod.POST)
+    public LayuiResult modify(@RequestBody User user,@PathVariable String id){
         LayuiResult layuiResult = new LayuiResult();
-
-        return layuiResult;
+        user.setUserid(id);
+        boolean flag = userServiceI.modify(user);
+        if (flag){
+            layuiResult.setCode(0);
+            layuiResult.setMsg("修改成功");
+            return layuiResult;
+        }
+        else  {
+          layuiResult.setCode(-1);
+          layuiResult.setMsg("修改失败");
+          return layuiResult;
+        }
     }
 
     //根据ID查密码
