@@ -187,6 +187,7 @@ public class SystemController {
         if (user.getRealname()!=null) dataUser.setRealname(user.getRealname());
         if (user.getFkroleid().equals("1")) dataUser.setPower("管理员");
         if (user.getPhone()!=null) dataUser.setPhone(user.getPhone());
+        if (user.getPassword()!=null) dataUser.setPassword(user.getPassword());
         else dataUser.setPower("一般用户");
         return dataUser;
     }

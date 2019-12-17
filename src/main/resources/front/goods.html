@@ -1,7 +1,132 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>商品页面</title>
+    <link rel="stylesheet" href="/front/layui/css/layui.css">
 </head>
-这是商品页面
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">商品页面</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+
+            <li class="layui-nav-item">
+                <div class="layui-form-item layui-input-inline" style="margin-top: 15px;height: 30px">
+                    <label class="layui-form-label">商品名</label>
+                    <div class="layui-input-inline">
+                        <input id="goodname" type="text" placeholder="请输入商品名" autocomplete="off" class="layui-input">
+                    </div>
+                    <label class="layui-form-label">商品ID</label>
+                    <div class="layui-input-inline">
+                        <input id="goodID" type="text" placeholder="请输入商品ID" autocomplete="off" class="layui-input">
+                    </div>
+                    <!--                    <label class="layui-form-label">权限</label>-->
+                    <div class="layui-input-inline">
+                        <button id="search" autocomplete="off" class="layui-btn layui-btn-normal"
+                                style="margin-top: -25px">检索
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item"><a href="">商品管理</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:">常用网站</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">登录</a></dd>
+                    <dd><a href="">注册</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    贤心
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退了</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:" id="allgood">所有商品</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:">电子设备</a></dd>
+                        <dd><a href="javascript:">笔记本电脑</a></dd>
+                        <dd><a href="javascript:">图书</a></dd>
+                        <dd><a href="javascript:">办公文具</a></dd>
+                        <dd><a href="javascript:">家用卫生</a></dd>
+                        <dd><a href="javascript:">厨房电器</a></dd>
+                        <dd><a href="javascript:">家电设施</a></dd>
+                        <dd><a href="javascript:">医药卫生</a></dd>
+                        <dd><a href="javascript:">男士服装</a></dd>
+                        <dd><a href="javascript:">女士服装</a></dd>
+                        <dd><a href="javascript:">儿童用品</a></dd>
+                        <dd><a href="javascript:">洗浴用具</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">解决方案</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">云市场</a></li>
+                <li class="layui-nav-item"><a href="">发布商品</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <div class="layui-form" id="all">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+<script src="/front/layui/layui.js"></script>
+<div id="view" class="layui-row layui-col-space30"></div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+
+    });
+
+    $("#allgood").click(function () {
+        $.ajax({
+            url: "/system/allgood/",
+            success: function (result) {
+                var count = result.count;
+                var parent = document.getElementById("all");
+                for (var i = 1; i <= count; ++i) {
+                    var div = document.createElement("div");
+                    div.style.height = "200px";
+
+                    parent.appendChild(div);
+                }
+            }
+        })
+    })
+</script>
+</body>
 </html>

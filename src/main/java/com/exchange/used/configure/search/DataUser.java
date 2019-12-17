@@ -17,8 +17,9 @@ public class DataUser {
     private String phone = "";
     private String email = "";
     private String power = "";
+    private String password="";
 
-    public DataUser(String id, String username, String realname, String sex, int age, String phone, String email, String power) {
+    public DataUser(String id, String username, String realname, String sex, int age, String phone, String email, String power ,String password) {
         this.id = id;
         this.username = username;
         this.realname = realname;
@@ -27,9 +28,18 @@ public class DataUser {
         this.phone = phone;
         this.email = email;
         this.power = power;
+        this.password = password;
     }
 
     public DataUser(){}
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getId() {
         return id;

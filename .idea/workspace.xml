@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00d6a258-c6bc-4f52-b638-69ed13c73f35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/DataUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/DataUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/goods.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/goods.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/front/manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/manage.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +60,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last.edited.regexp" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyPractice01/MyPractice01" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -171,7 +172,10 @@
       <workItem from="1576024408092" duration="21930000" />
       <workItem from="1576111527872" duration="7776000" />
       <workItem from="1576197069007" duration="938000" />
-      <workItem from="1576218665798" duration="11756000" />
+      <workItem from="1576218665798" duration="12035000" />
+      <workItem from="1576496306990" duration="8685000" />
+      <workItem from="1576569516338" duration="4416000" />
+      <workItem from="1576578235079" duration="8117000" />
     </task>
     <task id="LOCAL-00001" summary="2019.11.18">
       <created>1574053701215</created>
@@ -257,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576197237884</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="2019.12.13前端">
+      <created>1576231318346</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1576231318346</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
