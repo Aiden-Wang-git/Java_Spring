@@ -1,4 +1,4 @@
-package com.exchange.used.configure.search;
+package com.exchange.used.configure.searchUser;
 
 /**
  * ClassName:Where

@@ -118,6 +118,7 @@
             success: function (result) {
                 var count = result.count;
                 var parent = document.getElementById("all");
+                var arr = result;
                 for (var i = 1; i <= count; ++i) {
                     var div = document.createElement("div");
                     div.style.height = "200px";

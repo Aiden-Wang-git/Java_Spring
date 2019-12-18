@@ -1,15 +1,12 @@
 package com.exchange.used.controler;
 
 import com.exchange.used.configure.LayuiResult;
-import com.exchange.used.configure.search.*;
+import com.exchange.used.configure.searchUser.*;
 import com.exchange.used.entity.User;
 import com.exchange.used.services.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Id;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -161,7 +158,7 @@ public class SystemController {
         LayuiResult result = new LayuiResult();
         java.util.List<User> list = userServiceI.getAllUsers(sql);
         List<DataUser> dataUserList = new ArrayList<>();
-        if (dataUserList != null){
+        if (list != null){
             for (int i = 0;i<list.size();++i){
                 dataUserList.add(SystemController.converUser(list.get(i)));
             }

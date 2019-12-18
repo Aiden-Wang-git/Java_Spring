@@ -1,4 +1,4 @@
-package com.exchange.used.configure.search;
+package com.exchange.used.configure.searchUser;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

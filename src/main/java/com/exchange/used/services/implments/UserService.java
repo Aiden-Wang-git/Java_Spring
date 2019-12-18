@@ -82,7 +82,6 @@ public class UserService implements UserServiceI {
             e.printStackTrace();
             return null;
         }
-
     }
 
     @Override

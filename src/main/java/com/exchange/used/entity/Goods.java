@@ -19,7 +19,7 @@ public class Goods {
     private Double goodsprice;      //价格
     private String goodsunit;       //单位
     private Double goodnum;         //商品剩余数量
-    private String goodsstar;       //商品评分
+    private Double goodsstar;       //商品评分
     private String goodsimg1;       //商品图片1
     private String goodsimg2;       //商品图片2
     private String goodsimg3;       //商品图片3
@@ -124,11 +124,11 @@ public class Goods {
         this.goodsimg3 = goodsimg3;
     }
 
-    public String getGoodsstar() {
+    public Double getGoodsstar() {
         return goodsstar;
     }
 
-    public void setGoodsstar(String goodsstar) {
+    public void setGoodsstar(Double goodsstar) {
         this.goodsstar = goodsstar;
     }
 }

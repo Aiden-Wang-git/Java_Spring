@@ -1,8 +1,6 @@
-package com.exchange.used.configure.search;
+package com.exchange.used.configure.searchUser;
 
 import java.util.Map;
-
-import static com.exchange.used.configure.search.Symbol.*;
 
 /**
  * ClassName:SqlBulider
