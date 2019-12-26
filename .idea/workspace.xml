@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00d6a258-c6bc-4f52-b638-69ed13c73f35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/searchGood/DataGood.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/GoodController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/services/GoodServiceI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/services/implments/GoodService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/searchUser/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/DataUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/searchUser/DataUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/searchUser/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/SqlBulider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/searchUser/SqlBulider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Symbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/searchUser/Symbol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/search/Where.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/configure/searchUser/Where.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/entity/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/entity/Goods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/repository/GoodsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/repository/GoodsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/repository/TypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/repository/TypeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/services/implments/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/services/implments/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/GoodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/exchange/used/controler/GoodController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/front/goods.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/goods.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -187,7 +173,8 @@
       <workItem from="1576496306990" duration="8685000" />
       <workItem from="1576569516338" duration="4416000" />
       <workItem from="1576578235079" duration="10610000" />
-      <workItem from="1576662767075" duration="6655000" />
+      <workItem from="1576662767075" duration="7744000" />
+      <workItem from="1577322007992" duration="201000" />
     </task>
     <task id="LOCAL-00001" summary="2019.11.18">
       <created>1574053701215</created>
@@ -287,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576586731151</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="2019.12.18前端">
+      <created>1576669731875</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1576669731875</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +324,7 @@
     <MESSAGE value="2019.12.11前端" />
     <MESSAGE value="2019.12.13前端" />
     <MESSAGE value="2019.12.17前端" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019.12.17前端" />
+    <MESSAGE value="2019.12.18前端" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019.12.18前端" />
   </component>
 </project>

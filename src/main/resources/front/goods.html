@@ -25,7 +25,7 @@
                     </div>
                     <!--                    <label class="layui-form-label">权限</label>-->
                     <div class="layui-input-inline">
-                        <button id="search" autocomplete="off" class="layui-btn layui-btn-normal"
+                        <button id="searchgood" autocomplete="off" class="layui-btn layui-btn-normal"
                                 style="margin-top: -25px">检索
                         </button>
                     </div>
@@ -126,6 +126,13 @@
                     parent.appendChild(div);
                 }
             }
+        })
+    })
+
+    $("#searchgood").click(function () {
+        $.ajax({
+            url:"/system/searchgood",
+            method:"get",
         })
     })
 </script>

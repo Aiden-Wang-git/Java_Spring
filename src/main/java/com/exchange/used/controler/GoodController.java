@@ -34,10 +34,12 @@ public class GoodController {
         return goodServiceI.searchallgood();
     }
 
-    @RequestMapping(value = "/search",method = RequestMethod.GET)
-    public LayuiResult searchgood(@RequestParam String goodID,@RequestParam String goodName)
+    @RequestMapping(value = "/searchgood",method = RequestMethod.GET)
+    public LayuiResult searchgood(@RequestParam String goodID,@RequestParam String goodName,@RequestParam Integer page,@RequestParam Integer limit)
     {
         Condition condition = new Condition();
+        condition.setPage(page);
+        condition.setLimit(limit);
         condition.setTablename("goods");
         if (goodID.length()>0){
             Where where1 = new Where();
